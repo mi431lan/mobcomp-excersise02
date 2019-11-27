@@ -17,7 +17,12 @@ public class IBMWatsonApiTask extends AsyncTask<String, String, String> {
     private static final String SERVICE_URL = "https://gateway.watsonplatform.net/visual-recognition/api";
     private static final String VERSION_DATE = "2018-03-19";
     private IBMWatsonAPITaskPresenter.View view;
-
+    // check if internet wenn ja request ausführen
+    // wenn nein parameter speichern und
+    // request ausführen sobald internet wieder verfügbar
+    //https://medium.com/@ankit_aggarwal/check-active-internet-connection-on-android-device-3138ad81932d
+    //https://developer.android.com/topic/libraries/architecture/workmanager/basics.html
+    // persistence with sqlite o.ä
 
     public IBMWatsonApiTask(IBMWatsonAPITaskPresenter.View view) {
         this.view = view;
