@@ -2,9 +2,11 @@ package mobile.computing.presenter.rest;
 
 import android.os.AsyncTask;
 
+import com.treebo.internetavailabilitychecker.InternetConnectivityListener;
+
 import mobile.computing.model.rest.IBMWatsonApiTask;
 
-public class IBMWatsonAPITaskPresenter {
+public class IBMWatsonAPITaskPresenter implements InternetConnectivityListener {
 
     private static final String TAG = "IBMWatsonAPITaskPres";
 
@@ -18,7 +20,6 @@ public class IBMWatsonAPITaskPresenter {
     }
 
     public void classifyImage(String url) {
-
         ibmWatsonApiTask = new IBMWatsonApiTask(view).execute(url);
 
     }
@@ -29,6 +30,11 @@ public class IBMWatsonAPITaskPresenter {
                 && ibmWatsonApiTask.getStatus() == AsyncTask.Status.RUNNING) {
             ibmWatsonApiTask.cancel(true);
         }
+
+    }
+
+    @Override
+    public void onInternetConnectivityChanged(boolean isConnected) {
 
     }
 
